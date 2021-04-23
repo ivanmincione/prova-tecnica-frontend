@@ -1,0 +1,96 @@
+#footer{
+    padding-top: 0;
+
+    #footer-top{
+        background-color: $bgFooter;
+        padding: $spacing * 6 $spacing * 8 ;
+
+        .container{
+            .footer-content-top{
+                h1{
+                    font-size: $fontSize * 3;
+                    color: $textWhite;
+                    margin-bottom: $spacing * 2;
+                }
+
+                .link-footer{
+                    color: $textFooter;
+                    .row{
+                        @include flexbox;
+                        @include justify-content($value: space-between);
+
+                        ul{
+                            margin: 0 $spacing;
+                            li{
+                                line-height: 3;
+
+                                a{
+                                    color: $textFooter;
+
+                                    &:hover{
+                                        border-bottom: 1px solid $textFooter;
+                                        transition: 0.5s;
+                                    }
+                                }
+
+                                #link-email{
+                                    border-bottom: 1px solid $textFooter;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .footer-content-bottom{
+        @include flexbox;
+        @include justify-content($value: space-around);
+        background-color: $bgFooterBottom;
+        padding: $spacing * 2 0 ;
+
+    }
+}
+
+@media screen and (max-width: 992px ){
+    #footer #footer-top .container .footer-content-top{
+        h1{
+            text-align: center;
+        }
+    }
+    .link-footer .row{
+        flex-direction: column;
+
+        ul{
+            border-bottom: 1px solid $textFooter;
+
+            li{
+                text-align: center;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px ) {
+
+    #footer{
+        padding: 0;
+    }
+
+    #footer #footer-top{
+        padding: $spacing;
+
+        .container{
+            .footer-content-top{
+                h1 {
+                    font-size: $fontSize;
+                }
+            }
+        }
+    }
+
+    .footer-content-bottom{
+        flex-direction: column;
+        text-align: center;
+    }
+}

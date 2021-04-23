@@ -1,0 +1,81 @@
+#contact{
+    padding-bottom: 0;
+    .contact-content{
+        width: 100%;
+        height: auto;
+        background: url("https://citynews-today.stgy.ovh/~media/original-hi/55877627757242/57843594_m-2.jpg") no-repeat center center;
+        background-size: cover;
+        position: relative;
+        text-align: center;
+        color: $textWhite;
+        padding: $spacing * 4 0;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+            z-index: 0;
+        }
+
+        h1{
+            position: relative;
+            font-size: $fontSize * 4;
+            margin-bottom: $spacing;
+        }
+        h4 {
+            position: relative;
+            margin-bottom: $spacing;
+        }
+
+        .contact-email{
+            position: relative;
+            input{
+                width: 280px;
+                height: 60px;
+                outline: none;
+                line-height: 2;
+                background: transparent;
+                border: 1px solid #fff;
+                color: $textWhite;
+                font-size: $fontSize;
+                padding: $spacing ;
+                margin-bottom: $spacing * 2;
+                &::placeholder{
+                    color: $textWhite;
+                    opacity: 1;
+                }
+            }
+
+            a{
+                width: 60px;
+                height: 60px;
+                color: $textWhite;
+                padding: $spacing - 4px;
+                font-size: $fontSize;
+                border: 1px solid #fff;
+                margin-left: $spacing;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 600px ){
+    #contact{
+        padding: 0;
+    }
+
+    #contact .contact-content h1{
+        font-size: $fontSize * 2;
+    }
+
+    #contact .contact-content .contact-email input{
+        width: 250px;
+        padding: $spacing / 2;
+        font-size: $fontSize - 6px;
+    }
+}

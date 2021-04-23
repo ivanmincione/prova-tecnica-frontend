@@ -1,0 +1,178 @@
+header{
+    // padding: $spacing;
+    #header-nav{
+        @include flexbox;
+        @include justify-content($value: space-between);
+        @include align-items($value: center);
+
+        #header-logo{
+            background-color: $bgLogo;
+
+            h1{
+                color: $textWhite;
+                font-size: $fontSize * 1.6;
+                padding: $spacing;
+                letter-spacing: 3px;
+            }
+        }
+
+        .hamb-menu{
+            display: none;
+        }
+
+        .header-menu{
+            width: 100%;
+            ul{
+                @include flexbox;
+                @include justify-content($value: space-around);
+
+                li{
+
+                    a{
+                        color: $textDark;
+                        font-family: "Montserrat", sans-serif;
+                        font-size: $fontSize / 1.2;
+                        font-weight: bold;
+
+                        &:hover{
+                            color: $bgLogo;
+                            border-bottom: 1px solid $bgLogo;
+                            transition: 0.5s linear;
+                        }
+                    }
+                }
+            }
+        }
+
+        .search{
+            margin-left: $spacing * 4;
+            @include flexbox;
+
+            .input-search{
+                input{
+                    width: 100px;
+                    outline: none;
+                    border: none;
+                    border-bottom: 2px solid $textDark;
+                }
+            }
+
+            .icon-search{
+                i {
+                    padding-right: $spacing * 3;
+                    color: $iconSearch;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .header-menu, .input-search, .icon-search{
+        display: none;
+    }
+
+    header #header-nav #header-logo h1{
+        font-size: $fontSize;
+        padding: $spacing;
+    }
+
+    header #header-nav .hamb-menu{
+        display: block;
+        width: 100%;
+        margin-left: $spacing;
+        @include flexbox;
+        @include justify-content($value: flex-end);
+
+        #menuToggle{
+            display: block;
+            position: relative;
+            top: 0px;
+            right: 0;
+            z-index: 1;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        #menuToggle a{
+            text-decoration: none;
+            color: $textWhite;
+            transition: color 0.3s ease;
+        }
+
+        #menuToggle a:hover{
+            color: $textDark;
+        }
+
+        #menuToggle input{
+            display: block;
+            width: 40px;
+            height: 32px;
+            position: absolute;
+            top: -7px;
+            left: -5px;
+            cursor: pointer;
+            opacity: 0;
+            z-index: 2;
+        }
+
+        #menuToggle span{
+            display: block;
+            width: 33px;
+            height: 6px;
+            margin-bottom: 5px;
+            position: relative;
+            background: $bgLogo;
+            border-radius: 3px;
+            z-index: 1;
+            transform-origin: 4px 0px;
+            transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                opacity 0.55s ease;
+        }
+
+        #menuToggle span:first-child{
+            transform-origin: 0% 0%;
+        }
+
+        #menuToggle span:nth-last-child(2){
+            transform-origin: 0% 100%;
+        }
+
+        #menuToggle input:checked ~ span{
+            opacity: 1;
+            transform: rotate(45deg) translate(-2px, -1px);
+            background: #282626;
+        }
+
+        #menuToggle input:checked ~ span:nth-last-child(3){
+            opacity: 0;
+            transform: rotate(0deg) scale(0.2, 0.2);
+        }
+
+        #menuToggle input:checked ~ span:nth-last-child(2){
+            transform: rotate(-45deg) translate(0, -1px);
+        }
+
+        #menu{
+            position: absolute;
+            left: -20px;
+            top: 48px;
+            padding: $spacing;
+            background-color: $bgLogo;
+            -webkit-font-smoothing: antialiased;
+            transform-origin: 0% 0%;
+            transform: translate(200%, 0);
+            transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+        }
+
+        #menu li{
+            padding: $spacing / 2 0;
+            font-size: $fontSize - 5px;
+        }
+
+        #menuToggle input:checked ~ ul{
+            transform: none;
+        }
+    }
+}

@@ -1,0 +1,89 @@
+#discover{
+    .discover-content{
+        @include flexbox;
+        width: 100%;
+
+        .discover-text{
+            position: relative;
+            width: 100%;
+            background: url("https://spynews.it/wp-content/uploads/2019/02/uomo-con-orologio-da-polso-elegante-1280x720.jpg") no-repeat center center fixed ;
+            background-size: cover;
+            text-align: center;
+            color: $textWhite;
+            padding: $spacing * 6;
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.4);
+                z-index: 0;
+            }
+
+            h4{
+                position: relative;
+                font-size: $fontSize / 2;
+                margin-bottom: $spacing * 2;
+                letter-spacing: 2px;
+            }
+            h1{
+                position: relative;
+                font-size: $fontSize * 2;
+                letter-spacing: 2px;
+            }
+        }
+
+        .discover-slide{
+            width: 100%;
+            @include flexbox;
+            @include flex-wrap($value: wrap);
+
+            img{
+                width: 49%;
+                height: 250px;
+                object-fit: cover;
+                position: relative;
+
+                &:hover{
+                    cursor: text;
+                    filter: brightness(50%);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px ) {
+    #discover{
+        .discover-content{
+            @include flex-wrap($value: wrap); 
+
+            .discover-slide{
+                .top-slide{
+                    text-align: center;
+                }
+                .bottom-slide{
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px ) {
+    .discover-slide{
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: 500px ) {
+    #discover .discover-content .discover-slide .top-slide, #discover .discover-content .discover-slide .bottom-slide{
+        display: none;
+    }
+
+    #discover .discover-content .discover-text{
+        padding: $spacing * 4 0;
+    }
+}

@@ -1,0 +1,153 @@
+#hero{
+    width: 100%;
+    height: 100vh;
+    background: url("https://source.unsplash.com/random") no-repeat center center fixed ; // URL for random background
+    background-size: cover;
+    color: $textWhite;
+    position: relative;
+    @include flexbox;
+    @include justify-content($value: center);
+    @include align-items($value: center);
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.4);
+        z-index: 0;
+    }
+
+    .hero-content{
+        position: relative;
+        text-align: center;
+        color: $textWhite;
+
+        h1{
+            margin: $spacing * 2 0;
+            font-size: $fontSize * 3;
+            letter-spacing: 3px;
+        }
+
+        h4{
+            letter-spacing: 3px;
+        }
+
+        p{
+            font-size: $fontSize - 5px;
+            color: $textWhite;
+        }
+
+        .btn{
+
+            a{
+                color: $textWhite;
+                font-size: $fontSize;
+                padding: $spacing / 1.5 $spacing * 4;
+                display: block;
+            }
+        }
+    }
+
+    //SLIDER hero
+    #main-slider-space {
+    	overflow:hidden;
+    	width: 350px;
+    	height: 250px;
+        border: 1px solid #fff;
+        position: absolute;
+        bottom: 0;
+        right: 10%;
+
+        .slider-text{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+
+            h1{
+                padding: $spacing;
+                font-size: $fontSize;
+            }
+        }
+
+        .slider-wrapper {
+            position:relative;
+            left:0;
+            width:3000px;
+            height:100%;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.4);
+                z-index: 0;
+            }
+        }
+
+        .main-slide {
+            width:600px;
+            height:100%;
+            float:left;
+        }
+
+        #slide1 {
+            background: url("https://timeandtidewatches.com/wp-content/uploads/2019/08/TAG-Heuer-Carrera-cal-16-blue-2019-256x256.jpg") no-repeat center center;
+            background-size: cover;
+        }
+        #slide2 {
+            background: url("https://timeandtidewatches.com/wp-content/uploads/2020/07/Dan-Henry-Black6-256x256.jpg") no-repeat center center;
+            background-size: cover;
+        }
+        #slide3 {
+            background: url("https://timeandtidewatches.com/wp-content/uploads/2021/04/TAG-smart-watch-26March2021-19635-256x256.jpg") no-repeat center center;
+            background-size: cover;
+        }
+
+        #main-slider-next {
+            position: absolute;
+            bottom: 30px;
+            right: 20px;
+        }
+
+        .slider-buttons {
+            position: relative;
+            display: block;
+            width:100px;
+            height:30px;
+
+            &:hover {
+                cursor:pointer;
+            }
+
+            span{
+                letter-spacing: 3px;
+                font-weight: bold;
+                color: $textWhite;
+            }
+
+            i{
+                margin-left: $spacing;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    #hero #main-slider-space{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #hero .hero-content h1{
+        font-size: $fontSize * 2;
+        transition: 0.5s;
+    }
+}

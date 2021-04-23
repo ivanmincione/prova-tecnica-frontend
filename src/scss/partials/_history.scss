@@ -1,0 +1,56 @@
+#history{
+
+    .title-history{
+        font-size: $fontSize * 3;
+    }
+
+    .text-history{
+        @include flexbox;
+        @include justify-content($value: space-between);
+        width: 100%;
+        margin-top: $spacing * 3;
+
+        .left-text {
+            width: 100%;
+            padding: 0 $spacing * 2 0 0;
+        }
+        .right-text{
+            width: 100%;
+        }
+
+        .left-text p {
+            width: 80%;
+        }
+
+        .left-text p, .right-text p {
+            font-size: $fontSize;
+        }
+    }
+}
+
+@media screen and (max-width: 748px ) {
+
+    #history .title-history{
+        font-size: $fontSize * 2;
+        text-align: center;
+    }
+
+    #history .text-history{
+        @include flex-wrap($value: wrap);
+
+        .left-text, .right-text {
+            width: 100%;
+            padding: 0 ;
+        }
+
+        .left-text p {
+            width: 100%;
+            margin-bottom: $spacing * 2;
+        }
+
+        .left-text p, .right-text p {
+            font-size: $fontSize - 5px;
+            text-align: center;
+        }
+    }
+}

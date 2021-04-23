@@ -1,0 +1,147 @@
+#lab{
+    .lab-content{
+        @include flexbox;
+        @include justify-content($value: space-between);
+
+        .lab-left{
+            width: 100%;
+            padding-right: $spacing;
+            h1{
+                font-size: $fontSize * 3;
+                margin-bottom: $spacing * 2;
+            }
+            p{
+                padding-right: 40%;
+                font-size: $fontSize;
+            }
+        }
+
+        .lab-right{
+            width: 100%;
+            height: 600px;
+            background-color: #eee;
+            @include flexbox;
+            @include justify-content($value: space-between);
+
+            .lab-right-text{
+                padding: $spacing * 10 $spacing 0 0;
+                width: 50%;
+                h4{
+                    font-size: $fontSize / 2;
+                    letter-spacing: 2px;
+                    margin-bottom: $spacing / 2;
+                }
+                h5{
+                    color: rgb(212, 187, 81);
+                    letter-spacing: 2px;
+
+                }
+                h1{
+                    font-size: $fontSize;
+                    margin: $spacing * 2 0;
+
+                }
+                i{
+                    font-size: $fontSize;
+                    padding: $spacing / 2;
+
+                    &:last-of-type{
+                        margin-left: $spacing;
+                    }
+                    &:hover{
+                        cursor: pointer;
+                        color: $bgLogo;
+                    }
+                }
+            }
+            // slider
+            .lab-right-slider{
+                position: relative;
+
+                .lab-right-slider-content{
+                    position: absolute;
+                    top: 30%;
+                    left: -200px;
+                    width: 400px;
+                    height: 400px;
+
+                    .mySlides{
+                        display: none;
+                        object-fit: cover;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 992px ){
+    #lab .lab-content{
+        @include flex-wrap($value: wrap);
+
+        .lab-left{
+            text-align: center;
+
+            p{
+                width: 100%;
+                padding: $spacing;
+            }
+        }
+
+        .lab-right{
+            text-align: center;
+
+            .lab-right-text{
+                padding: $spacing * 4 $spacing;
+            }
+
+            .lab-right-slider{
+                width: 100%;
+                height: 100%;
+
+                .lab-right-slider-content{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 576px ) {
+    #lab{
+        .lab-content{
+            .lab-right{
+                @include flex-wrap($value: wrap);
+                @include justify-content($value: center);
+                padding: $spacing / 2;
+                .lab-right-slider{
+                    width: 250px;
+                    height: 250px;
+
+                    .lab-right-slider-content{
+                        width: 100%;
+                        height: 100%;
+
+                        img{
+                            border-radius: 50%;
+                        }
+                    }
+                }
+                .lab-right-text{
+                    padding: $spacing  0;
+
+                    h1{
+                        margin: $spacing 0;
+                    }
+                }
+            }
+        }
+    }
+}
